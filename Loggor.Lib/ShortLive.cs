@@ -10,14 +10,18 @@ namespace Loggor.Lib
     {
         public class ShortLiveData
         {
+            private int startEventId;
+            private int stopEventId;
             private string startMessage = string.Empty;
             private string stopMessage = string.Empty;
             private DateTime StartTime;
             private DateTime StopTime;
             private object[] args;
 
-            public ShortLiveData(string startMessage, string stopMessage, params object[] args)
+            public ShortLiveData(int startEventId, int stopEventId, string startMessage, string stopMessage, params object[] args)
             {
+                this.startEventId = startEventId;
+                this.stopEventId = stopEventId;
                 this.startMessage = startMessage;
                 this.stopMessage = stopMessage;
                 this.StartTime = DateTime.Now;
@@ -90,6 +94,8 @@ namespace Loggor.Lib
                 Console.WriteLine(message);
             }
         }
+        private int startEventId;
+        private int stopEventId;
         private string startMessage;
         private string stopMessage;
         private object[] args;
@@ -103,7 +109,7 @@ namespace Loggor.Lib
 
         public ShortLiveData Start()
         {
-            var sld = new ShortLiveData(startMessage, stopMessage, args);
+            var sld = new ShortLiveData(startEventId, stopEventId, startMessage, stopMessage, args);
             sld.Start();
             return sld;
         }

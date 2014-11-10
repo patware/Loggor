@@ -12,6 +12,7 @@ namespace Loggor.TestHarness
         /// Juste Fou
         /// <para>Output: Juste Fou</para>
         /// </summary>
+        [Loggor.Lib.Log(EventId=1000)]
         void Foo();
 
         /// <summary>
@@ -21,6 +22,7 @@ namespace Loggor.TestHarness
         /// <param name="i">I que c'est beau</param>
         /// <param name="sss">son d'un serpent</param>
         /// <example>i is <paramref name="i"/> and sss is <paramref name="sss"/></example>
+        [Loggor.Lib.Log(EventId = 1001)]
         void Bar(int i, string sss);
 
         /// <summary>
@@ -30,6 +32,7 @@ namespace Loggor.TestHarness
         /// </summary>
         /// <param name="who">Kekun</param>
         /// <returns></returns>
+        [Loggor.Lib.LogShortLive(StartEventId = 1002, StopEventId= 1003)]
         Loggor.Lib.ShortLive ThisLongProcess(string who);
     }
 }
