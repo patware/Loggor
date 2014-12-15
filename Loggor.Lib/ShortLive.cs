@@ -8,18 +8,23 @@ namespace Loggor.Lib
 {
     public class ShortLive
     {
+
         public class ShortLiveData
         {
+            private ILogWriter LogWriter = null;
+
             private int startEventId;
             private int stopEventId;
             private string startMessage = string.Empty;
             private string stopMessage = string.Empty;
+            private string title = string.Empty;
             private DateTime StartTime;
             private DateTime StopTime;
             private object[] args;
 
-            public ShortLiveData(int startEventId, int stopEventId, string startMessage, string stopMessage, params object[] args)
+            public ShortLiveData(ILogWriter logWriter, int startEventId, int stopEventId, string startMessage, string stopMessage, string title, params object[] args)
             {
+                this.LogWriter = logWriter;
                 this.startEventId = startEventId;
                 this.stopEventId = stopEventId;
                 this.startMessage = startMessage;
@@ -27,6 +32,7 @@ namespace Loggor.Lib
                 this.StartTime = DateTime.Now;
                 this.args = args;
             }
+
             internal void Start()
             {
                 var message = startMessage;
@@ -56,7 +62,7 @@ namespace Loggor.Lib
                         break;
                 }
 
-                Console.WriteLine(message);
+                this.LogWriter.Log(this.startEventId, message, title, System.Diagnostics.TraceEventType.Information);
             }
             public void Stop()
             {
@@ -91,27 +97,21 @@ namespace Loggor.Lib
                         break;
                 }
 
-                Console.WriteLine(message);
+                this.LogWriter.Log(this.stopEventId, message, this.title, System.Diagnostics.TraceEventType.Information);
             }
         }
-        private int startEventId;
-        private int stopEventId;
-        private string startMessage;
-        private string stopMessage;
-        private object[] args;
 
-        public ShortLive(string startMessage, string stopMessage, params object[] args)
+        private ShortLiveData _sld;
+
+        public ShortLive(ILogWriter logWriter, int startEventId, string startMessage, int stopEventId, string stopMessage, string title, params object[] args)
         {
-            this.args = args;
-            this.startMessage = startMessage;
-            this.stopMessage = stopMessage;
+            _sld = new ShortLiveData(logWriter, startEventId, stopEventId, startMessage, stopMessage, title, args);
         }
 
         public ShortLiveData Start()
         {
-            var sld = new ShortLiveData(startEventId, stopEventId, startMessage, stopMessage, args);
-            sld.Start();
-            return sld;
+            _sld.Start();
+            return _sld;
         }
     }
 }

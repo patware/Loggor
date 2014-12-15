@@ -10,11 +10,14 @@ namespace Loggor.TestHarness
     {
         static void Main(string[] args)
         {
-            ILog log = new LogEntlib();
+
+            var lw = new Loggor.EnterpriseLibraryLoggingHandler.LogWriter();
+            
+            ILog log = new MyLog(lw);
 
             log.Foo();
 
-            log.Bar(123, "bin des s");
+            log.Bar(123, "bla bla");
 
             var cld = log.ThisLongProcess("Patou").Start();
             System.Threading.Thread.Sleep(1234);
