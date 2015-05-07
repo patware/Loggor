@@ -70,6 +70,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Loggor.DevelopperLoggingHandler\Loggor.DevelopperLoggingHandler.csproj">
+      <Project>{1fae72f6-0085-4972-8db4-9c69242ff3e8}</Project>
+      <Name>Loggor.DevelopperLoggingHandler</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Loggor.EnterpriseLibraryLoggingHandler\Loggor.EnterpriseLibraryLoggingHandler.csproj">
       <Project>{e7bdd514-d4d5-45cf-8d11-a5978ef15131}</Project>
       <Name>Loggor.EnterpriseLibraryLoggingHandler</Name>

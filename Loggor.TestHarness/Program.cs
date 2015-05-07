@@ -10,9 +10,12 @@ namespace Loggor.TestHarness
     {
         static void Main(string[] args)
         {
+            Lib.ILogWriter lw;
+            // instead, opt for IoC/DI approach... but to make this Test Harness clear and easy to understand by all...
+            //var lw = new Loggor.EnterpriseLibraryLoggingHandler.LogWriter();
 
-            var lw = new Loggor.EnterpriseLibraryLoggingHandler.LogWriter();
-            
+            lw = new Loggor.DevelopperLoggingHandler.DevLogWriter();
+
             ILog log = new MyLog(lw);
 
             log.Foo();
@@ -27,6 +30,9 @@ namespace Loggor.TestHarness
             System.Threading.Thread.Sleep(234);
             cld2.Stop();
 
+            Console.WriteLine();
+            Console.WriteLine("Press any key to close this app ...");
+            Console.ReadKey();
         }
     }
 }

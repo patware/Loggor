@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Loggor.EnterpriseLibraryLoggingHandler
 {
-    class LogEntry : Loggor.Lib.LogEntryBase, Loggor.Lib.ILogEntry
+    class LogEntry : Loggor.Lib.ILogEntry
     {
 
         public Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry Entry { get; private set; }
@@ -240,7 +240,21 @@ namespace Loggor.EnterpriseLibraryLoggingHandler
             }
         }
 
+        TraceEventType Lib.ILogEntry.EventType
+        {
+            get
+            {
+                return this.Entry.Severity;
+            }
+            set
+            {
+                this.Entry.Severity = value;
+            }
+        }
+
         #endregion
+
+
 
 
     }
