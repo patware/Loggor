@@ -14,7 +14,8 @@ namespace Loggor.TestHarness
             // instead, opt for IoC/DI approach... but to make this Test Harness clear and easy to understand by all...
             //var lw = new Loggor.EnterpriseLibraryLoggingHandler.LogWriter();
 
-            lw = new Loggor.DevelopperLoggingHandler.DevLogWriter();
+            //lw = new Loggor.DevelopperLoggingHandler.DevLogWriter();
+            lw = new Loggor.Lib.NoOpWriter();
 
             ILog log = new MyLog(lw);
 

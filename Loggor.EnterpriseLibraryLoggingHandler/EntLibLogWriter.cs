@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 
 namespace Loggor.EnterpriseLibraryLoggingHandler
 {
-    public class LogWriter : Loggor.Lib.LogWriterBase, Loggor.Lib.ILogWriter
+    public class EntLibLogWriter : Loggor.Lib.ILogWriter
     {
 
         public Microsoft.Practices.EnterpriseLibrary.Logging.LogWriter Writer {get; private set;}
-        public LogWriter()
+        public EntLibLogWriter()
         {
             var config = new Microsoft.Practices.EnterpriseLibrary.Logging.LoggingConfiguration();
             this.Writer = new Microsoft.Practices.EnterpriseLibrary.Logging.LogWriter(config);
         }
 
-
+        /*
         #region LogWriterBase Implementation
         public override ShortLive NewShortLiveLog(int startEventId, string startMessage, int stopEventId, string stopMessage, string title, params object[] args)
         {
@@ -55,7 +55,7 @@ namespace Loggor.EnterpriseLibraryLoggingHandler
                 this.Writer.Write(le.Entry);
         }
         #endregion
-        
+        */
 
         #region ILogWriter Implementation
         bool Lib.ILogWriter.IsLoggingEnabled()
@@ -70,20 +70,20 @@ namespace Loggor.EnterpriseLibraryLoggingHandler
 
         bool Lib.ILogWriter.ShouldLog(Lib.ILogEntry log)
         {
-            var entLibEntry = log as Loggor.EnterpriseLibraryLoggingHandler.LogEntry;
+            var entLibEntry = log as Loggor.EnterpriseLibraryLoggingHandler.EntLibLogEntry;
 
             return this.Writer.ShouldLog(entLibEntry.Entry);
         }
         Lib.ILogEntry Lib.ILogWriter.NewLog()
         {
-            var le = new LogEntry();
+            var le = new EntLibLogEntry();
 
             return le;
         }
 
         void Lib.ILogWriter.Write(Lib.ILogEntry log)
         {
-            var entLibEntry = log as Loggor.EnterpriseLibraryLoggingHandler.LogEntry;
+            var entLibEntry = log as Loggor.EnterpriseLibraryLoggingHandler.EntLibLogEntry;
 
             this.Writer.Write(entLibEntry.Entry);
         }
@@ -177,9 +177,28 @@ namespace Loggor.EnterpriseLibraryLoggingHandler
         {
             this.Writer.Write(message, category, priority, eventId, severity, title, properties);
         }
+
+
+        ShortLive ILogWriter.NewShortLiveLog(int startEventId, string startMessage, int stopEventId, string stopMessage, string title, params object[] args)
+        {
+            throw new NotImplementedException();
+        }
+
+        void ILogWriter.Log(int eventId, string message, string title, TraceEventType eventType)
+        {
+            var ele = new EntLibLogEntry();
+            ele.Entry.EventId = eventId;
+            ele.Entry.Message = message;
+            ele.Entry.Title = title;
+            this.Writer.Write(ele.Entry);
+        }
+
+        void ILogWriter.Log(ILogEntry le)
+        {
+            var ele = new EntLibLogEntry();
+            
+            this.Writer.Write(le);
+        }
         #endregion
-
-
-
     }
 }

@@ -49,8 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LogEntry.cs" />
-    <Compile Include="LogWriter.cs" />
+    <Compile Include="EntLibLogEntry.cs" />
+    <Compile Include="EntLibLogWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

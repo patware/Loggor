@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Loggor.EnterpriseLibraryLoggingHandler
 {
-    class LogEntry : Loggor.Lib.ILogEntry
+    class EntLibLogEntry : Loggor.Lib.ILogEntry
     {
 
         public Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry Entry { get; private set; }
 
-        public LogEntry()
+        public EntLibLogEntry()
         {
             this.Entry = new Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry();
         }

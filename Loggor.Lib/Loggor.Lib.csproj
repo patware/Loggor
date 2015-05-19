@@ -43,7 +43,8 @@
     <Compile Include="ILogWriter.cs" />
     <Compile Include="LogShortLiveAttribute.cs" />
     <Compile Include="LogAttribute.cs" />
-    <Compile Include="LogWriterBase.cs" />
+    <Compile Include="LogWriterBaseDOH.cs" />
+    <Compile Include="NoOpWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShortLive.cs" />
     <Compile Include="StandardLogEntry.cs" />

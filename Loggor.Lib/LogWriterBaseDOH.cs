@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Loggor.Lib
 {
-    public abstract class LogWriterBase
+    public abstract class LogWriterBaseDOH
     {
         protected internal abstract ILogEntry GetNewLog();
         protected internal abstract bool IsLoggingEnabled();

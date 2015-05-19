@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Loggor.DevelopperLoggingHandler
 {
-    public class DevLogWriter: Loggor.Lib.LogWriterBase, Loggor.Lib.ILogWriter
+    public class DevLogWriter: Loggor.Lib.ILogWriter
     {
         #region ILogWriter
 
@@ -141,6 +141,7 @@ namespace Loggor.DevelopperLoggingHandler
         }
         #endregion
 
+        /*
         #region LogWriterBase
         public override Loggor.Lib.ShortLive NewShortLiveLog(int startEventId, string startMessage, int stopEventId, string stopMessage, string title, params object[] args)
         {
@@ -168,5 +169,6 @@ namespace Loggor.DevelopperLoggingHandler
         }
 
         #endregion
+         */
     }
 }

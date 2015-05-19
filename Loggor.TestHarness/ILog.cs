@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Loggor.TestHarness
 {
+    /// <summary>
+    /// Logging for application TestHarness
+    /// </summary>
     public interface ILog
     {
         /// <summary>
