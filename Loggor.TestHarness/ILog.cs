@@ -30,8 +30,8 @@ namespace Loggor.TestHarness
 
         /// <summary>
         /// Short running processus.
-        /// <para>Start a ThisLongProcess for <paramref name="who"/>.  Started at {StartTime}</para>
-        /// <para>ThisLongProcess finished for <paramref name="who"/>, started at {StartTime}, finished at {StopTime}, for a total of {TotalSeconds:0.##} seconds.</para>
+        /// <para>Start: Start a ThisLongProcess for <paramref name="who"/>.  Started at {StartTime}</para>
+        /// <para>Stop: ThisLongProcess finished for <paramref name="who"/>, started at {StartTime}, finished at {StopTime}, for a total of {TotalSeconds:0.##} seconds.</para>
         /// </summary>
         /// <param name="who">The person you're doing the process for.</param>
         /// <returns></returns>
