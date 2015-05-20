@@ -9,7 +9,7 @@ namespace Loggor.Lib
         string AppDomainName { get; set; }
         System.Collections.Generic.ICollection<string> Categories { get; set; }
         string[] CategoriesStrings { get; }
-        string ErrorMessages { get; }
+        System.Collections.Generic.IList<string> ErrorMessages { get; }
         int EventId { get; set; }
         System.Collections.Generic.IDictionary<string, object> ExtendedProperties { get; set; }
         string LoggedSeverity { get; }

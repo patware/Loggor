@@ -70,10 +70,11 @@ namespace Loggor.EnterpriseLibraryLoggingHandler
 
         bool Lib.ILogWriter.ShouldLog(Lib.ILogEntry log)
         {
-            var entLibEntry = log as Loggor.EnterpriseLibraryLoggingHandler.EntLibLogEntry;
+            var entLibEntry = getEntLibEntry(log);
 
             return this.Writer.ShouldLog(entLibEntry.Entry);
         }
+
         Lib.ILogEntry Lib.ILogWriter.NewLog()
         {
             var le = new EntLibLogEntry();
@@ -83,9 +84,10 @@ namespace Loggor.EnterpriseLibraryLoggingHandler
 
         void Lib.ILogWriter.Write(Lib.ILogEntry log)
         {
-            var entLibEntry = log as Loggor.EnterpriseLibraryLoggingHandler.EntLibLogEntry;
+            var entLibEntry = getEntLibEntry(log);
 
-            this.Writer.Write(entLibEntry.Entry);
+            this.Writer.Write(log);
+
         }
 
         void Lib.ILogWriter.Write(object message)
@@ -200,5 +202,41 @@ namespace Loggor.EnterpriseLibraryLoggingHandler
             this.Writer.Write(le);
         }
         #endregion
+
+        private EntLibLogEntry getEntLibEntry(ILogEntry log)
+        {
+            var entLibEntry = log as Loggor.EnterpriseLibraryLoggingHandler.EntLibLogEntry;
+
+            if (entLibEntry != null)
+                return entLibEntry;
+            else
+            {
+                entLibEntry = new EntLibLogEntry();
+                entLibEntry.Entry.ActivityId = log.ActivityId;
+                entLibEntry.Entry.AppDomainName = log.AppDomainName;
+                entLibEntry.Entry.Categories = log.Categories;
+                
+                entLibEntry.Entry.EventId = log.EventId;
+                entLibEntry.Entry.ExtendedProperties = log.ExtendedProperties;
+                entLibEntry.Entry.MachineName = log.MachineName;
+                entLibEntry.Entry.ManagedThreadName = log.ManagedThreadName;
+                entLibEntry.Entry.Message = log.Message;
+                entLibEntry.Entry.Priority = log.Priority;
+                entLibEntry.Entry.ProcessId = log.ProcessId;
+                entLibEntry.Entry.ProcessName = log.ProcessName;
+                entLibEntry.Entry.RelatedActivityId = log.RelatedActivityId;
+                entLibEntry.Entry.Severity = log.Severity;
+                entLibEntry.Entry.TimeStamp = log.TimeStamp;
+                entLibEntry.Entry.Title = log.Title;
+                entLibEntry.Entry.Win32ThreadId = log.Win32ThreadId;
+
+                foreach (var em in log.ErrorMessages)
+                    entLibEntry.Entry.AddErrorMessage(em);
+
+                return entLibEntry;
+            }
+
+        }
+
     }
 }

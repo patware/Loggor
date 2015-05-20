@@ -55,9 +55,9 @@ namespace Loggor.Lib
             }
         }
 
-        string Lib.ILogEntry.ErrorMessages
+        IList<string> Lib.ILogEntry.ErrorMessages
         {
-            get { return string.Join("\r\n", _errorMessages); }
+            get { return _errorMessages; }
         }
 
         private int _eventId;

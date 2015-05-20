@@ -69,9 +69,9 @@ namespace Loggor.EnterpriseLibraryLoggingHandler
             get { return this.Entry.CategoriesStrings; }
         }
 
-        string Lib.ILogEntry.ErrorMessages
+        IList<string> Lib.ILogEntry.ErrorMessages
         {
-            get { return this.Entry.ErrorMessages; }
+            get { return new string[]{this.Entry.ErrorMessages}; }
         }
 
         int Lib.ILogEntry.EventId

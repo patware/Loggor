@@ -36,11 +36,7 @@ namespace Loggor.Lib
             return new ShortLive(this, startEventId, startMessage, stopEventId, stopMessage, title, args);
         }
 
-        void ILogWriter.Write(ILogEntry log)
-        {
-            
-        }
-
+        void ILogWriter.Write(ILogEntry log){}
         void ILogWriter.Write(object message){}
         void ILogWriter.Write(object message, IDictionary<string, object> properties){}
         void ILogWriter.Write(object message, IEnumerable<string> categories){}

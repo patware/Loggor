@@ -16,9 +16,27 @@ namespace Loggor.TestHarness
         /// </summary>
         public enum MyLogEventIds
         {
+            /// <summary>
+            /// Normal foo
+            /// </summary>
             Foo = 1000,
+
+            /// <summary>
+            /// A guy enters a bar
+            /// <para>Output: i is <paramref name="i"/> and sss is <paramref name="sss"/></para>
+            /// </summary>
             Bar = 1001,
+
+            /// <summary>
+            /// Start of a Short running processus.  Start a ThisLongProcess for {who}.  Started at {StartTime}.
+            /// </summary>
+            /// <seealso cref="MyLogEventIds.ThisLongProcessStop"/>
             ThisLongProcessStart = 1002,
+
+            /// <summary>
+            /// Stop of a Short running processus. ThisLongProcess finished for {who}, started at {StartTime}, finished at {StopTime}, for a total of {TotalSeconds:0.##} seconds
+            /// </summary>
+            /// <seealso cref="MyLogEventIds.ThisLongProcessStart"/>
             ThisLongProcessStop = 1003
         }
 
@@ -77,7 +95,7 @@ namespace Loggor.TestHarness
         /// <summary>
         /// Short running processus.
         /// <para>Start a ThisLongProcess for <paramref name="who"/>.  Started at {StartTime}</para>
-        /// <para>ThisLongProcess finished for <paramref name="who"/> Started at {StartTime}, finished at {StopTime}, for a total of {TotalSeconds:0.##} seconds.</para>
+        /// <para>ThisLongProcess finished for <paramref name="who"/>, started at {StartTime}, finished at {StopTime}, for a total of {TotalSeconds:0.##} seconds.</para>
         /// </summary>
         /// <param name="who">The person you're doing the process for.</param>
         /// <returns></returns>
@@ -87,7 +105,7 @@ namespace Loggor.TestHarness
             var startMessageStringFormat = "Start a ThisLongProcess for {0}.  Started at {1}";
 
             var stopEventId = 1003;
-            var stopMessageStringFormat = "ThisLongProcess finished for {0}. Started at {1}, finished at {2}, for a total of {3:0.##} seconds.";
+            var stopMessageStringFormat = "ThisLongProcess finished for {0}, started at {1}, finished at {2}, for a total of {3:0.##} seconds.";
 
             var title = "Short running processus.";
 
