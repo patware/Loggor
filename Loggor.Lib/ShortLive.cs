@@ -11,16 +11,16 @@ namespace Loggor.Lib
 
         public class ShortLiveData
         {
-            private ILogWriter LogWriter = null;
+            private readonly ILogWriter LogWriter = null;
 
-            private int startEventId;
-            private int stopEventId;
-            private string startMessage = string.Empty;
-            private string stopMessage = string.Empty;
-            private string title = string.Empty;
-            private DateTime StartTime;
+            private readonly int startEventId;
+            private readonly int stopEventId;
+            private readonly string startMessage = string.Empty;
+            private readonly string stopMessage = string.Empty;
+            private readonly string title = string.Empty;
+            private readonly DateTime StartTime;
             private DateTime StopTime;
-            private object[] args;
+            private readonly object[] args;
 
             public ShortLiveData(ILogWriter logWriter, int startEventId, int stopEventId, string startMessage, string stopMessage, string title, params object[] args)
             {
@@ -101,7 +101,7 @@ namespace Loggor.Lib
             }
         }
 
-        private ShortLiveData _sld;
+        private readonly ShortLiveData _sld;
 
         public ShortLive(ILogWriter logWriter, int startEventId, string startMessage, int stopEventId, string stopMessage, string title, params object[] args)
         {

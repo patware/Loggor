@@ -64,3 +64,4 @@ C:\dev\github.com\patware\Loggor\Loggor.TestHarness\obj\Debug\Loggor.TestHarness
 C:\dev\github.com\patware\Loggor\Loggor.TestHarness\obj\Debug\Loggor.TestHarness.exe
 C:\dev\github.com\patware\Loggor\Loggor.TestHarness\obj\Debug\Loggor.TestHarness.pdb
 C:\dev\github.com\patware\Loggor\Loggor.TestHarness\bin\Debug\Loggor.TestHarness.XML
+D:\dev\GitHub\Patware\Loggor\Loggor.TestHarness\bin\Debug\Loggor.TestHarness.exe.config

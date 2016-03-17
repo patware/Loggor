@@ -23,7 +23,7 @@ namespace Loggor.TestHarness
 
             /// <summary>
             /// A guy enters a bar
-            /// <para>Output: i is <paramref name="i"/> and sss is <paramref name="sss"/></para>
+            /// <para>Output: i is {i} and sss is {sss}</para>
             /// </summary>
             Bar = 1001,
 
