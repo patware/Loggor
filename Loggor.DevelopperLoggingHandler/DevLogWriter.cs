@@ -140,35 +140,6 @@ namespace Loggor.DevelopperLoggingHandler
             System.Diagnostics.Trace.WriteLine(le.Message);
         }
         #endregion
-
-        /*
-        #region LogWriterBase
-        public override Loggor.Lib.ShortLive NewShortLiveLog(int startEventId, string startMessage, int stopEventId, string stopMessage, string title, params object[] args)
-        {
-            var sl = new Loggor.Lib.ShortLive(this, startEventId, startMessage, stopEventId, stopMessage, title, args);
-            return sl;
-
-        }        
-        protected override Lib.ILogEntry GetNewLog()
-        {
-            return new Loggor.Lib.StandardLogEntry();
-        }
-        protected override bool IsLoggingEnabled()
-        {
-            return true;
-        }
-        protected override bool ShouldLog(Loggor.Lib.ILogEntry logEntry)
-        {
-            return true;
-        }
-
-        protected override void Write(Loggor.Lib.ILogEntry logEntry)
-        {
-            if (logEntry != null)
-                System.Diagnostics.Trace.WriteLine(logEntry.Message);
-        }
-
-        #endregion
-         */
+        
     }
 }

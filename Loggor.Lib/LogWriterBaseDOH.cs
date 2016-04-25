@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Loggor.Lib
 {
+#pragma warning disable S101 // Types should be named in camel case
     public abstract class LogWriterBaseDOH
+#pragma warning restore S101 // Types should be named in camel case
     {
         protected internal abstract ILogEntry GetNewLog();
         protected internal abstract bool IsLoggingEnabled();

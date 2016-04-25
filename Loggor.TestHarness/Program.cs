@@ -58,12 +58,20 @@ namespace Loggor.TestHarness
         {
             
             var cld1 = _log.ThisLongProcess("Patou").Start();
+            // Do something that takes time.
             System.Threading.Thread.Sleep(1234);
+            // Finish it here
             cld1.Stop();
 
             var cld2 = _log.ThisLongProcess("Sandra").Start();
             System.Threading.Thread.Sleep(2345);
             cld2.Stop();
+
+            _log.ThisLongProcess("Anto").Execute(() => { System.Threading.Thread.Sleep(3456); });
+
+            int count = _log.ThisLongProcess("Anto").Run<int>(() => 25);
+            Console.WriteLine(count);
+            
         }
 
     }

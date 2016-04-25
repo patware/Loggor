@@ -101,6 +101,49 @@ namespace Loggor.Lib
             }
         }
 
+        public void Execute(Action p)
+        {
+            var sld = Start();
+
+            try
+            {
+                p();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                sld.Stop();
+            }
+
+            
+        }
+
+        public T Run<T>(Func<T> p)
+        {
+            T ret = default(T);
+
+            var sld = Start();
+
+            try
+            {
+                ret = p();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                sld.Stop();
+            }
+
+            return ret;
+
+        }
+
         private readonly ShortLiveData _sld;
 
         public ShortLive(ILogWriter logWriter, int startEventId, string startMessage, int stopEventId, string stopMessage, string title, params object[] args)

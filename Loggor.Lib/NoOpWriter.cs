@@ -36,26 +36,89 @@ namespace Loggor.Lib
             return new ShortLive(this, startEventId, startMessage, stopEventId, stopMessage, title, args);
         }
 
-        void ILogWriter.Write(ILogEntry log){}
-        void ILogWriter.Write(object message){}
-        void ILogWriter.Write(object message, IDictionary<string, object> properties){}
-        void ILogWriter.Write(object message, IEnumerable<string> categories){}
-        void ILogWriter.Write(object message, IEnumerable<string> categories, IDictionary<string, object> properties){}
-        void ILogWriter.Write(object message, IEnumerable<string> categories, int priority){}
-        void ILogWriter.Write(object message, IEnumerable<string> categories, int priority, IDictionary<string, object> properties){}
-        void ILogWriter.Write(object message, IEnumerable<string> categories, int priority, int eventId){}
-        void ILogWriter.Write(object message, IEnumerable<string> categories, int priority, int eventId, System.Diagnostics.TraceEventType severity){}
-        void ILogWriter.Write(object message, IEnumerable<string> categories, int priority, int eventId, System.Diagnostics.TraceEventType severity, string title){}
-        void ILogWriter.Write(object message, IEnumerable<string> categories, int priority, int eventId, System.Diagnostics.TraceEventType severity, string title, IDictionary<string, object> properties){}
-        void ILogWriter.Write(object message, string category){}
-        void ILogWriter.Write(object message, string category, IDictionary<string, object> properties){}
-        void ILogWriter.Write(object message, string category, int priority){}
-        void ILogWriter.Write(object message, string category, int priority, IDictionary<string, object> properties){}
-        void ILogWriter.Write(object message, string category, int priority, int eventId){}
-        void ILogWriter.Write(object message, string category, int priority, int eventId, System.Diagnostics.TraceEventType severity){}
-        void ILogWriter.Write(object message, string category, int priority, int eventId, System.Diagnostics.TraceEventType severity, string title){}
-        void ILogWriter.Write(object message, string category, int priority, int eventId, System.Diagnostics.TraceEventType severity, string title, IDictionary<string, object> properties){}
-        void ILogWriter.Log(int eventId, string message, string title, System.Diagnostics.TraceEventType eventType){}
-        void ILogWriter.Log(ILogEntry le){}
+        void ILogWriter.Write(ILogEntry log)
+        {
+            // Method intentionally left empty.
+        }
+        void ILogWriter.Write(object message)
+        {
+            // Method intentionally left empty.
+        }
+        void ILogWriter.Write(object message, IDictionary<string, object> properties)
+        {
+            // Method intentionally left empty.
+        }
+        void ILogWriter.Write(object message, IEnumerable<string> categories)
+        {
+            // Method intentionally left empty.
+        }
+        void ILogWriter.Write(object message, IEnumerable<string> categories, IDictionary<string, object> properties)
+        {
+            // Method intentionally left empty.
+        }
+        void ILogWriter.Write(object message, IEnumerable<string> categories, int priority)
+        {
+            // Method intentionally left empty.
+        }
+        void ILogWriter.Write(object message, IEnumerable<string> categories, int priority, IDictionary<string, object> properties)
+        {
+            // Method intentionally left empty.
+        }
+        void ILogWriter.Write(object message, IEnumerable<string> categories, int priority, int eventId)
+        {
+            // Method intentionally left empty.
+        }
+        void ILogWriter.Write(object message, IEnumerable<string> categories, int priority, int eventId, System.Diagnostics.TraceEventType severity)
+        {
+            // Method intentionally left empty.
+        }
+        void ILogWriter.Write(object message, IEnumerable<string> categories, int priority, int eventId, System.Diagnostics.TraceEventType severity, string title)
+        {
+            // Method intentionally left empty.
+        }
+        void ILogWriter.Write(object message, IEnumerable<string> categories, int priority, int eventId, System.Diagnostics.TraceEventType severity, string title, IDictionary<string, object> properties)
+        {
+            // Method intentionally left empty.
+        }
+        void ILogWriter.Write(object message, string category)
+        {
+            // Method intentionally left empty.
+        }
+        void ILogWriter.Write(object message, string category, IDictionary<string, object> properties)
+        {
+            // Method intentionally left empty.
+        }
+        void ILogWriter.Write(object message, string category, int priority)
+        {
+            // Method intentionally left empty.
+        }
+        void ILogWriter.Write(object message, string category, int priority, IDictionary<string, object> properties)
+        {
+            // Method intentionally left empty.
+        }
+        void ILogWriter.Write(object message, string category, int priority, int eventId)
+        {
+            // Method intentionally left empty.
+        }
+        void ILogWriter.Write(object message, string category, int priority, int eventId, System.Diagnostics.TraceEventType severity)
+        {
+            // Method intentionally left empty.
+        }
+        void ILogWriter.Write(object message, string category, int priority, int eventId, System.Diagnostics.TraceEventType severity, string title)
+        {
+            // Method intentionally left empty.
+        }
+        void ILogWriter.Write(object message, string category, int priority, int eventId, System.Diagnostics.TraceEventType severity, string title, IDictionary<string, object> properties)
+        {
+            // Method intentionally left empty.
+        }
+        void ILogWriter.Log(int eventId, string message, string title, System.Diagnostics.TraceEventType eventType)
+        {
+            // Method intentionally left empty.
+        }
+        void ILogWriter.Log(ILogEntry le)
+        {
+            // Method intentionally left empty.
+        }
     }
 }

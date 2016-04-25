@@ -18,45 +18,7 @@ namespace Loggor.EnterpriseLibraryLoggingHandler
             var config = new Microsoft.Practices.EnterpriseLibrary.Logging.LoggingConfiguration();
             this.Writer = new Microsoft.Practices.EnterpriseLibrary.Logging.LogWriter(config);
         }
-
-        /*
-        #region LogWriterBase Implementation
-        public override ShortLive NewShortLiveLog(int startEventId, string startMessage, int stopEventId, string stopMessage, string title, params object[] args)
-        {
-            var sl = new Loggor.Lib.ShortLive(this, startEventId, startMessage, stopEventId, stopMessage, title, args);
-            return sl;
-
-        }
-        protected override ILogEntry GetNewLog()
-        {
-            var nl = new LogEntry();
-
-            return nl;
-
-        }
-        protected override bool IsLoggingEnabled()
-        {
-            return this.Writer.IsLoggingEnabled();
-        }
-
-        protected override bool ShouldLog(ILogEntry logEntry)
-        {
-            var le = logEntry as LogEntry;
-            if (le != null)
-                return this.Writer.ShouldLog(le.Entry);
-            else
-                return false;
-        }
-
-        protected override void Write(ILogEntry logEntry)
-        {
-            var le = logEntry as LogEntry;
-            if (le != null)
-                this.Writer.Write(le.Entry);
-        }
-        #endregion
-        */
-
+        
         #region ILogWriter Implementation
         bool Lib.ILogWriter.IsLoggingEnabled()
         {
@@ -70,7 +32,7 @@ namespace Loggor.EnterpriseLibraryLoggingHandler
 
         bool Lib.ILogWriter.ShouldLog(Lib.ILogEntry log)
         {
-            var entLibEntry = getEntLibEntry(log);
+            var entLibEntry = GetEntLibEntry(log);
 
             return this.Writer.ShouldLog(entLibEntry.Entry);
         }
@@ -84,8 +46,7 @@ namespace Loggor.EnterpriseLibraryLoggingHandler
 
         void Lib.ILogWriter.Write(Lib.ILogEntry log)
         {
-            var entLibEntry = getEntLibEntry(log);
-
+            
             this.Writer.Write(log);
 
         }
@@ -197,13 +158,12 @@ namespace Loggor.EnterpriseLibraryLoggingHandler
 
         void ILogWriter.Log(ILogEntry le)
         {
-            var ele = new EntLibLogEntry();
-            
+           
             this.Writer.Write(le);
         }
         #endregion
 
-        private EntLibLogEntry getEntLibEntry(ILogEntry log)
+        private EntLibLogEntry GetEntLibEntry(ILogEntry log)
         {
             var entLibEntry = log as Loggor.EnterpriseLibraryLoggingHandler.EntLibLogEntry;
 

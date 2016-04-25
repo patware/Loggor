@@ -211,10 +211,23 @@ namespace Loggor.EnterpriseLibraryLoggingHandler
             }
         }
 
-        string Lib.ILogEntry.TimeStampString
+        string Lib.ILogEntry.TimeStampString()
         {
-            get { return this.Entry.TimeStampString; }
+            return this.Entry.TimeStamp.ToString(System.Globalization.CultureInfo.CurrentCulture);
         }
+        string Lib.ILogEntry.TimeStampString(IFormatProvider provider)
+        {
+            return this.Entry.TimeStamp.ToString(provider);
+        }
+        string Lib.ILogEntry.TimeStampString(string format)
+        {
+            return this.Entry.TimeStamp.ToString(format);
+        }
+        string Lib.ILogEntry.TimeStampString(string format, IFormatProvider provider)
+        {
+            return this.Entry.TimeStamp.ToString(format, provider);
+        }
+
 
         string Lib.ILogEntry.Title
         {

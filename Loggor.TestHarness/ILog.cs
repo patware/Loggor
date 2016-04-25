@@ -29,7 +29,7 @@ namespace Loggor.TestHarness
         void Bar(int i, string sss);
 
         /// <summary>
-        /// Short running processus.
+        /// Example of short running processus.  You have control using Start/Stop, or call Execute/Run to have it wrapped up.
         /// <para>Start: Start a ThisLongProcess for <paramref name="who"/>.  Started at {StartTime}</para>
         /// <para>Stop: ThisLongProcess finished for <paramref name="who"/>, started at {StartTime}, finished at {StopTime}, for a total of {TotalSeconds:0.##} seconds.</para>
         /// </summary>

@@ -22,7 +22,10 @@ namespace Loggor.Lib
         Guid? RelatedActivityId { get; set; }
         System.Diagnostics.TraceEventType Severity { get; set; }
         DateTime TimeStamp { get; set; }
-        string TimeStampString { get; }
+        string TimeStampString();
+        string TimeStampString(IFormatProvider provider);
+        string TimeStampString(string format);
+        string TimeStampString(string format, IFormatProvider provider);
         string Title { get; set; }
         string Win32ThreadId { get; set; }
 
